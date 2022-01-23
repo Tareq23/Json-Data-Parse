@@ -30,6 +30,12 @@ class HomeApp extends StatefulWidget {
 class _HomeAppState extends State<HomeApp> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  var listTileTextStyle =  const TextStyle(color:Colors.white,fontWeight: FontWeight.w500,fontSize: 22);
+
+  void closeDrawer()
+  {
+    _scaffoldKey.currentState!.openEndDrawer();
+  }
 
   Future<List<PostModel>> readJsonData() async {
     final String _jsonData = await rootBundle.loadString('assets/posts.json');
@@ -43,8 +49,80 @@ class _HomeAppState extends State<HomeApp> {
       key: _scaffoldKey,
       drawer: Drawer(
         child: ListView(
-          children: const  [
-             DrawerHeaderWidget(),
+          children:   [
+             const DrawerHeaderWidget(),
+             Container(
+               margin: const EdgeInsets.symmetric(vertical: 5),
+               decoration: const BoxDecoration(
+                 color:  Color(0xff123456)
+               ),
+               child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('Simple JSON',style: listTileTextStyle,),
+               ),
+             ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              decoration: const BoxDecoration(
+                  color:  Color(0xff123456)
+              ),
+              child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('Simple JSON & Array',style: listTileTextStyle,),
+               ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              decoration: const BoxDecoration(
+                  color:  Color(0xff123456)
+              ),
+              child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('Nested JSON',style: listTileTextStyle,),
+               ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              decoration: const BoxDecoration(
+                  color:  Color(0xff123456)
+              ),
+              child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('Nested JSON & List',style: listTileTextStyle,),
+               ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              decoration: const BoxDecoration(
+                  color:  Color(0xff123456)
+              ),
+              child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('List Of Map',style: listTileTextStyle,),
+               ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              decoration: const BoxDecoration(
+                  color:  Color(0xff123456)
+              ),
+              child: ListTile(
+                 onTap: (){
+                   closeDrawer();
+                 },
+                 title:  Text('Complex Nested Json',style: listTileTextStyle,),
+               ),
+            ),
           ],
         ),
       ),
