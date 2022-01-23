@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_json_data_parse/model/posts.dart';
+import 'package:flutter_json_data_parse/widgets/drawer_header_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: HomeApp(),
     );
   }
@@ -27,19 +29,35 @@ class HomeApp extends StatefulWidget {
 
 class _HomeAppState extends State<HomeApp> {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   Future<List<PostModel>> readJsonData() async {
     final String _jsonData = await rootBundle.loadString('assets/posts.json');
     final dataList =  json.decode(_jsonData) as List<dynamic>;
     return dataList.map((e) => PostModel.fromJson(e)).toList();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: ListView(
+          children: const  [
+             DrawerHeaderWidget(),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: const Color(0xff123456),
         title: const Text('Json Data',style: TextStyle(fontSize: 32,fontWeight: FontWeight.w700,color: Colors.white),),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: (){
+            _scaffoldKey.currentState!.openDrawer();
+          },
+          icon: const Icon(Icons.menu,size: 34,color: Colors.white,),
+        ),
       ),
       body: FutureBuilder(
         future: readJsonData(),
