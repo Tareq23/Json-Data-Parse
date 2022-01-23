@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_json_data_parse/static_function/fetch_future_data.dart';
 import 'package:flutter_json_data_parse/widgets/drawer_header_widget.dart';
 import 'package:flutter_json_data_parse/widgets/json_list_map.dart';
+import 'package:flutter_json_data_parse/widgets/simple_json.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -85,6 +86,9 @@ class _HomeAppState extends State<HomeApp> {
                 child: ListTile(
                   onTap: () {
                     closeDrawer();
+                    setState(() {
+                      isSimpleJson = true;
+                    });
                   },
                   title: Text(
                     'Simple JSON',
@@ -195,6 +199,8 @@ class _HomeAppState extends State<HomeApp> {
 
           ],
         ),
-        body: isJsonListMap ? const JsonListMapWidget() : null);
+        body: isJsonListMap ? const JsonListMapWidget() : isSimpleJson ?  SimpleJsonWidget() : null
+      // body: const SimpleJsonWidget(),
+    );
   }
 }
