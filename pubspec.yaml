@@ -61,6 +61,7 @@ flutter:
   assets:
      - posts.json
      - student.json
+     - person.json
      - json-icon.png
   #   - images/a_dot_ham.jpeg
 

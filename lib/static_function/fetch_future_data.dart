@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_json_data_parse/model/person.dart';
 import 'package:flutter_json_data_parse/model/posts.dart';
 import 'package:flutter_json_data_parse/model/student.dart';
 
@@ -21,9 +22,15 @@ class FetchFutureData{
   }
 
   static Future<StudentModel> readStudentJsonData() async {
-    final dataList = json.decode(await loadJson('assets/student.json'));
-    decodedJson = dataList;
-    return  StudentModel.fromJson(dataList);
+    final data = json.decode(await loadJson('assets/student.json'));
+    decodedJson = data;
+    return  StudentModel.fromJson(data);
+  }
+
+  static Future<PersonModel> readPersonJsonData() async{
+    final data = json.decode(await loadJson('assets/person.json'));
+    decodedJson = data;
+    return PersonModel.fromJson(data);
   }
 
 }
