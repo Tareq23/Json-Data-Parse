@@ -1,0 +1,16 @@
+
+{
+  "name":"Abdulla Al Ayan",
+  "age":25,
+  "homeAddress":
+    { "street":"Bhola-Daulatkhan, Charkholifa-union, Mongol Bepari Bari",
+      "city": "Barisal",
+      "zipcode":"8301"
+    },
+  "businessAddress":
+    {
+      "street":"kazi Nazrul Islam avenue",
+      "city": "Dhaka",
+      "zipcode":"1310"
+    }
+}
