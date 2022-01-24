@@ -1,0 +1,42 @@
+{
+  "name" : "Md Tarequl Islam",
+  "phone" : "+88017********",
+  "email" : "mdtarequlislam634@gmail.com",
+  "address" : "Bhola-Daulatkhan",
+  "friends" : [
+    {
+      "name" : "xyz",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "xyz@example.com"
+    },
+    {
+      "name" : "abc",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "abc@example.com"
+    },{
+      "name" : "pqr",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "pqr@example.com"
+    },{
+      "name" : "qrp",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "qrp@example.com"
+    },{
+      "name" : "mno",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "mno@example.com"
+    },{
+      "name" : "lrp",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "lrp@example.com"
+    },{
+      "name" : "brq",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "brq@example.com"
+    },{
+      "name" : "zrp",
+      "address" : "Dhaka-Bangladesh",
+      "email" : "zrp@example.com"
+    }
+  ]
+}

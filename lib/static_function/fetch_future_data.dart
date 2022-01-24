@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_json_data_parse/model/complex/user.dart';
 import 'package:flutter_json_data_parse/model/employee.dart';
 import 'package:flutter_json_data_parse/model/person.dart';
 import 'package:flutter_json_data_parse/model/posts.dart';
@@ -38,6 +39,12 @@ class FetchFutureData{
     final data = json.decode(await loadJson('assets/employee.json'));
     decodedJson = data;
     return EmployeeModel.fromJson(data);
+  }
+
+  static Future<UserModel> readUserJsonData() async{
+    final data = json.decode(await loadJson('assets/user.json'));
+    decodedJson = data;
+    return UserModel.fromJson(data);
   }
 
 }

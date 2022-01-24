@@ -4,6 +4,7 @@ import 'package:flutter_json_data_parse/widgets/drawer_header_widget.dart';
 import 'package:flutter_json_data_parse/widgets/json_array.dart';
 import 'package:flutter_json_data_parse/widgets/json_list_map.dart';
 import 'package:flutter_json_data_parse/widgets/nested_json.dart';
+import 'package:flutter_json_data_parse/widgets/nested_json_array.dart';
 import 'package:flutter_json_data_parse/widgets/simple_json.dart';
 
 class HomePage extends StatelessWidget {
@@ -136,6 +137,9 @@ class _HomeAppState extends State<HomeApp> {
                 child: ListTile(
                   onTap: () {
                     closeDrawer();
+                    setState(() {
+                      isNestedJsonList = true;
+                    });
                   },
                   title: Text(
                     'Nested JSON & List',
@@ -211,6 +215,7 @@ class _HomeAppState extends State<HomeApp> {
               isSimpleJson ?  SimpleJsonWidget() :
               isSimpleJsonArray ? const JsonArrayWidget() :
               isNestedJson ? const NestedJsonWidget() :
+              isNestedJsonList? const NestedJsonArrayWidget() :
               null,
       // body: const SimpleJsonWidget(),
     );
