@@ -6,7 +6,7 @@ class PostModel{
   String? title;
   String? body;
 
-  PostModel({this.userId, this.postId, this.title, this.body});
+  // PostModel({this.userId, this.postId, this.title, this.body});
 
   PostModel.fromJson(Map<String,dynamic>json)
   {

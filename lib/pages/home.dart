@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_json_data_parse/static_function/fetch_future_data.dart';
+import 'package:flutter_json_data_parse/widgets/complex_json.dart';
 import 'package:flutter_json_data_parse/widgets/drawer_header_widget.dart';
 import 'package:flutter_json_data_parse/widgets/json_array.dart';
 import 'package:flutter_json_data_parse/widgets/json_list_map.dart';
@@ -35,7 +36,7 @@ class _HomeAppState extends State<HomeApp> {
   bool isNestedJson = false;
   bool isNestedJsonList = false;
   bool isJsonListMap = false;
-  bool isComplexNestedJson = false;
+  bool isComplexNestedJson = true;
 
   void closeDrawer() {
     setState(() {
@@ -169,6 +170,9 @@ class _HomeAppState extends State<HomeApp> {
                 child: ListTile(
                   onTap: () {
                     closeDrawer();
+                    setState(() {
+                      isComplexNestedJson = true;
+                    });
                   },
                   title: Text(
                     'Complex Nested Json',
@@ -216,6 +220,7 @@ class _HomeAppState extends State<HomeApp> {
               isSimpleJsonArray ? const JsonArrayWidget() :
               isNestedJson ? const NestedJsonWidget() :
               isNestedJsonList? const NestedJsonArrayWidget() :
+              isComplexNestedJson? const ComplexJsonWidget() :
               null,
       // body: const SimpleJsonWidget(),
     );

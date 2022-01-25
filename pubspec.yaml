@@ -65,7 +65,14 @@ flutter:
      - employee.json
      - person.json
      - user.json
+     - product.json
      - json-icon.png
+     - product-common-image.png
+     - product-common-image-two.png
+     - product-common-image-three.png
+     - product-common-image-four.png
+     - banner.png
+     - banner-two.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

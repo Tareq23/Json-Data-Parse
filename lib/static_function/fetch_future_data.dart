@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_json_data_parse/model/complex/ecommerce.dart';
 import 'package:flutter_json_data_parse/model/complex/user.dart';
 import 'package:flutter_json_data_parse/model/employee.dart';
 import 'package:flutter_json_data_parse/model/person.dart';
@@ -45,6 +46,12 @@ class FetchFutureData{
     final data = json.decode(await loadJson('assets/user.json'));
     decodedJson = data;
     return UserModel.fromJson(data);
+  }
+
+  static Future<EcommerceModel> readEcommerceJsonData() async {
+    final data = json.decode(await loadJson('assets/product.json'));
+    decodedJson = data;
+    return EcommerceModel.fromJson(data);
   }
 
 }
