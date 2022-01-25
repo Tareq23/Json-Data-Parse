@@ -216,7 +216,7 @@ class _HomeAppState extends State<HomeApp> {
           ],
         ),
         body: isJsonListMap ? const JsonListMapWidget() :
-              isSimpleJson ?  SimpleJsonWidget() :
+              isSimpleJson ?  const SimpleJsonWidget() :
               isSimpleJsonArray ? const JsonArrayWidget() :
               isNestedJson ? const NestedJsonWidget() :
               isNestedJsonList? const NestedJsonArrayWidget() :
