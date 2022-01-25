@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_json_data_parse/model/complex/categories.dart';
 import 'package:flutter_json_data_parse/model/complex/product.dart';
 import 'package:flutter_json_data_parse/pages/home.dart';
+import 'package:flutter_json_data_parse/pages/product_details.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProductPage extends StatelessWidget {
@@ -64,36 +65,46 @@ class _ProductHomeState extends State<ProductHome> {
           itemCount: category.name == "medicine" ? category.medicineProduct!.length : category.groceryProduct!.length,
           itemBuilder: (context, index) {
             var productList = category.name == "medicine" ? category.medicineProduct! : category.groceryProduct!;
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Card(
-                elevation: 15,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepOrange.shade900,
-                  ),
-                  child: Stack(
-                    children: [
-                      Image(
+            return Card(
+              elevation: 15,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width/2 - 8,
+                height: 300,
+
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey.shade900,
+                ),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image(
                         image: AssetImage(productList[index].imgList![0]),
                         fit: BoxFit.cover,
                       ),
-                      Positioned(
-                        bottom: 10,
-                        left: 10,
-                        right: 10,
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      left: 10,
+                      right: 10,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetailsPage(product: productList[index])));
+                        },
                         child: Container(
                           padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             color: Colors.lightBlueAccent.withOpacity(0.6),
                           ),
-                          child: Text(productList[index].commercialName.toString(),style: TextStyle(color: Colors.white),),
+                          // child: Text(productList[index].commercialName.toString(),style: TextStyle(color: Colors.white),),
+                          child: const Text("Show Details",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w600),),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             );

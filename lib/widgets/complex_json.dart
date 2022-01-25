@@ -53,12 +53,13 @@ class ComplexJsonWidget extends StatelessWidget {
                           child: Card(
                             elevation: 15,
                             child: Container(
+                              height: 250,
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 color: Colors.purple.shade900,
                               ),
-                              child: Text(data.categories![index].name.toString(),style: textStyle),
+                              child: Text("${data.categories![index].name}\nProducts",style: textStyle),
                             ),
                           ),
                         ),
